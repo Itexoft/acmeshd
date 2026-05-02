@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Acmeshd/Acmeshd.csproj" />
+  <Project Path="../../default/src/Itexoft/Itexoft.csproj" />
+</Solution>
