@@ -1,0 +1,12 @@
+<Project Sdk="Itexoft.NET.Sdk/0.0.1">
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <AssemblyName>acmeshd</AssemblyName>
+        <PackageId>acmeshd</PackageId>
+        <RootNamespace>Acmeshd</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\..\default\src\Itexoft\Itexoft.csproj"/>
+    </ItemGroup>
+</Project>

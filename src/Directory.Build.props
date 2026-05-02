@@ -1,0 +1,57 @@
+<Project>
+    <PropertyGroup>
+        <Configuration Condition="'$(Configuration)' == ''">Debug</Configuration>
+        <TargetFramework>net10.0</TargetFramework>
+        <RuntimeIdentifier>linux-x64</RuntimeIdentifier>
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+        <WarningLevel>10</WarningLevel>
+        <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
+        <EnableDefaultItems>true</EnableDefaultItems>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <LangVersion>latest</LangVersion>
+        <InvariantGlobalization>true</InvariantGlobalization>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <RepositoryType>git</RepositoryType>
+        <Authors>Denis Kudelin</Authors>
+        <Company>Itexoft</Company>
+        <Copyright>$(Authors)</Copyright>
+        <RepositoryUrl>https://github.com/Itexoft/acmeshd</RepositoryUrl>
+        <PackageProjectUrl>https://github.com/Itexoft/acmeshd</PackageProjectUrl>
+        <Description>Acmeshd</Description>
+        <PublishAot>true</PublishAot>
+        <SelfContained>true</SelfContained>
+        <IsAotCompatible>true</IsAotCompatible>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <VersionFile>$(MSBuildThisFileDirectory)../VERSION</VersionFile>
+        <VersionFromFile Condition="Exists('$(VersionFile)')">$([System.IO.File]::ReadAllText('$(VersionFile)').Trim())</VersionFromFile>
+        <Version Condition="'$(VersionFromFile)' != ''">$(VersionFromFile)</Version>
+        <PackageVersion Condition="'$(VersionFromFile)' != ''">$(VersionFromFile)</PackageVersion>
+        <AssemblyVersion Condition="'$(VersionFromFile)' != ''">$(VersionFromFile)</AssemblyVersion>
+        <FileVersion Condition="'$(VersionFromFile)' != ''">$(VersionFromFile)</FileVersion>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <_Rid>$(RuntimeIdentifier)</_Rid>
+        <DefaultItemExcludes>$(DefaultItemExcludes);bin/**;obj/**</DefaultItemExcludes>
+        <DefaultItemExcludesInProjectFolder>$(DefaultItemExcludesInProjectFolder);bin/**;obj/**</DefaultItemExcludesInProjectFolder>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <_ObjRoot>$([System.IO.Path]::Combine('$(MSBuildProjectDirectory)', 'obj', '$(MSBuildProjectName)-$(_Rid)'))$([System.IO.Path]::DirectorySeparatorChar)</_ObjRoot>
+        <PublishRelease>true</PublishRelease>
+        <MSBuildProjectExtensionsPath>$(_ObjRoot)</MSBuildProjectExtensionsPath>
+        <BaseIntermediateOutputPath>$(MSBuildProjectExtensionsPath)</BaseIntermediateOutputPath>
+        <RestoreOutputPath>$(MSBuildProjectExtensionsPath)</RestoreOutputPath>
+        <GenerateDependencyFile>false</GenerateDependencyFile>
+        <GenerateRuntimeConfigurationFiles>false</GenerateRuntimeConfigurationFiles>
+        <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <PublishTrimmed>true</PublishTrimmed>
+        <TrimMode>full</TrimMode>
+    </PropertyGroup>
+</Project>
